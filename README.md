@@ -32,6 +32,7 @@ This program is a combined bullshit and AI detector, designed to score pieces of
     - `ai_detector_data/gemini_results_nbs.zip`
     - `ai_detector_data/gpt_articles.zip`
   - the wikipedia data can be gathered using `wikipedia/fetching_code/wikipedia_only.mjs`. The data should then be moved to the correct location. See `wikipedia/fetching_code/README.md` for more information
+  - The AI data can be gathered using `human-to-ai-converter/main.py`, see `human-to-ai-converter/README.md` for more information
   - XGBoost also requires a vagueness database, stored in `src/xgboost/Concreteness_ratings_Brysbaert_et_al_BRM.2.xlsx`
 - To train all the active models, run `python3 src/train_all.py`
 - The training scripts automatically save the trained artifacts to:

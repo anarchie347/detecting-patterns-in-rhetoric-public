@@ -1,0 +1,1 @@
+Run All in clean.ipynb and merge.ipynb. Generated training and testing set are in merged/training.csv & merged/testing.csv

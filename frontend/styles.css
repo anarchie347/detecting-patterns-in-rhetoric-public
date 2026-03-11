@@ -1,0 +1,371 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #121212;
+  color: #f3f3f3;
+  overflow-x: hidden;
+}
+
+.container-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.container {
+  width: min(720px, 92vw);
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.fireworks-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.letter-field {
+  position: relative;
+  width: min(12vw, 120px);
+  min-width: 72px;
+  align-self: stretch;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.letter-field-left {
+  margin-right: 6px;
+}
+
+.letter-field-right {
+  margin-left: 6px;
+}
+
+.floating-letter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.35);
+  transform-origin: center;
+  will-change: transform, opacity;
+  animation: letterBloom 2.8s ease-out forwards;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes letterBloom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.35);
+  }
+
+  40% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  78% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.45);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.85);
+  }
+}
+
+.arthur-trigger {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  letter-spacing: 0.12em;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  color: #191919;
+  cursor: pointer;
+  user-select: none;
+  align-self: center;
+  flex: 0 0 auto;
+}
+
+.arthur-trigger:hover,
+.arthur-trigger:focus-visible {
+  color: rgba(243, 243, 243, 0.16);
+  outline: none;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  margin: 6px 0 20px;
+  color: #bdbdbd;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.text-input {
+  width: 100%;
+  min-height: 220px;
+  resize: vertical;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #111;
+  color: #f3f3f3;
+  font: inherit;
+}
+
+.file-input {
+  width: 100%;
+  margin-bottom: 8px;
+  font: inherit;
+}
+
+.file-status {
+  margin: 0 0 12px;
+  color: #bdbdbd;
+  font-size: 0.92rem;
+}
+
+.button {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid #f3f3f3;
+  background: #f3f3f3;
+  color: #111;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.button-row .button {
+  margin-top: 0;
+}
+
+.button-secondary {
+  background: #1a1a1a;
+  color: #f3f3f3;
+  border-color: #666;
+}
+
+.button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.button:hover {
+  opacity: 0.92;
+}
+
+.output {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid #333;
+}
+
+.output h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.output p {
+  margin: 0;
+  color: #bdbdbd;
+}
+
+.highlighted-text {
+  margin-top: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  color: #d4d4d4;
+}
+
+.highlight-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.hl-bs {
+  background: #ff4fd8;
+  color: #111;
+}
+
+.hl-ai {
+  background: #5ce6ff;
+  color: #111;
+}
+
+.hl-both {
+  background: #fef08a;
+  color: #111;
+}
+
+.output {
+  border-color: #333;
+}
+
+.meter-card {
+  border-color: #333;
+}
+/* --- Semi-circular meter --- */
+.meters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.meter-card {
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.meter-title {
+  margin: 0;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.meter {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  justify-items: center;
+  margin: 8px 0 0;
+}
+
+.gauge {
+  width: 220px;
+  height: auto;
+  display: block;
+}
+
+.gauge-arc {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 12;
+}
+
+.gauge-arc--bg {
+  stroke: #e6e8ee;
+}
+
+.gauge-arc--value {
+  stroke: url(#gaugeScaleGradient);
+  stroke-dasharray: 251.2; /* set in JS too; matches this arc length approx */
+  stroke-dashoffset: 251.2; /* start empty */
+  transition: stroke-dashoffset 300ms ease, stroke 300ms ease;
+}
+
+.gauge-needle {
+  transform: rotate(180deg); /* start at 0 (left side of scale) */
+  transition: transform 300ms ease;
+}
+
+.gauge-needle-line {
+  stroke: #e6e8ee; /* updated dynamically in JS */
+  stroke-width: 3;
+  transition: stroke 300ms ease;
+}
+
+.gauge-cap {
+  fill: #e6e8ee; /* updated dynamically in JS */
+  transition: fill 300ms ease;
+}
+
+.gauge-label {
+  font-size: 10px;
+  fill: #6b7280;
+}
+
+.meter-readout {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  text-align: center;
+}
+
+.meter-score {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  color: #e6e8ee; /* updated dynamically in JS */
+  transition: color 300ms ease;
+}
+
+.meter-score-suffix {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-left: 6px;
+}
+
+.meter-band {
+  font-size: 13px;
+  color: #374151;
+}
+
+@media (max-width: 720px) {
+  .meters {
+    grid-template-columns: 1fr;
+  }
+
+  .letter-field {
+    width: 44px;
+    min-width: 44px;
+  }
+}

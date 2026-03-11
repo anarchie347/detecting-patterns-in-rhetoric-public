@@ -1,0 +1,17 @@
+RoBERTa setup is now single-task per file.
+
+Use duplicated scripts:
+- train_roberta_bs.py / test_roberta_bs.py / predict_roberta_bs.py
+- train_roberta_ai.py / test_roberta_ai.py / predict_roberta_ai.py
+
+Core model wrapper:
+- roberta_model.py (single-task)
+- binary_model.py (single-head classifier)
+
+Label mapping:
+- label1 => BS task
+- label0 => AI task
+
+Directory naming:
+- roberta_bs_model  (BS)
+- roberta_ai_model  (AI)

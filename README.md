@@ -1,4 +1,4 @@
-# Detecting patterns in Rhetoric
+# Detecting Patterns in Rhetoric
 
 ## Overview
 

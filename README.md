@@ -8,6 +8,7 @@ This program is a combined bullshit and AI detector, designed to score pieces of
 
 - Clone this repository
 - Install python dependencies from `requirements.txt`
+- If you have a GPU that supports CUDA for training, uninstall `torch` and install an appropriate version for your GPU, see torch documentation for this
 - Add training/testing data.
   - This should be stored in the following files:
     - `data_cleansing/merged/bullshit_training_all.csv`

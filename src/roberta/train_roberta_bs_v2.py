@@ -9,7 +9,8 @@ from src.roberta.v2_split_utils import load_text_label_csv, split_train_cal_meta
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 MERGED_DIR = REPO_ROOT / "data_cleansing" / "merged"
-MODEL_BASE = str(Path(__file__).resolve().parent / "roberta_bs_model_v2")
+TRAINED_MODELS_DIR = REPO_ROOT / "trained_models"
+MODEL_BASE = str(TRAINED_MODELS_DIR / "roberta_bs_model_v2")
 TRAIN_OUTPUT_DIR = str(Path(__file__).resolve().parent / "roberta_bs_training_v2")
 
 def main() -> None:

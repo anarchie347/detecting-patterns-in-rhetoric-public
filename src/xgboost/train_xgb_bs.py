@@ -5,16 +5,23 @@ import pandas as pd
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 MERGED_DIR = REPO_ROOT / "data_cleansing" / "merged"
-MODEL_DIR = Path(__file__).resolve().parent / "xgb_bs_model"
-MODEL_DIR.mkdir(exist_ok=True)
+MODEL_DIR = REPO_ROOT / "trained_models" / "xgb_bs_model"
 
-df_train = pd.read_csv(MERGED_DIR / "bullshit_training_all.csv")
 
-texts = df_train["text"].to_numpy()
-label1 = df_train["label1"].to_numpy()
+def main() -> None:
+    MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
-xgb = XGBModel()
+    df_train = pd.read_csv(MERGED_DIR / "bullshit_training_all.csv")
 
-print(xgb.train_validate_new_model(texts, label1))
+    texts = df_train["text"].astype(str).to_numpy()
+    label1 = df_train["label1"].astype("uint8").to_numpy()
 
-xgb.save_model(str(MODEL_DIR / "xgb_bs_model"))
+    xgb = XGBModel()
+
+    print(xgb.train_validate_new_model(texts, label1))
+    xgb.save_model(str(MODEL_DIR / "xgb_bs_model"))
+    print("Saved BS XGBoost model to:", MODEL_DIR)
+
+
+if __name__ == "__main__":
+    main()

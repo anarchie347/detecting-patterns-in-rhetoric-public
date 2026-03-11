@@ -32,22 +32,18 @@ This program is a combined bullshit and AI detector, designed to score pieces of
     - `ai_detector_data/gemini_results_nbs.zip`
     - `ai_detector_data/gpt_articles.zip`
   - the wikipedia data can be gathered using `wikipedia/fetching_code/wikipedia_only.mjs`. The data should then be moved to the correct location. See `wikipedia/fetching_code/README.md` for more information
-- To train all the models, run `src/train_all.py`
+- To train all the active models, run `python3 src/train_all.py`
+- The training scripts automatically save the trained artifacts to:
+  - `trained_models/roberta_bs_model_v2/`
+  - `trained_models/roberta_ai_model_v2/`
+  - `trained_models/xgb_bs_model/`
+  - `trained_models/xgb_ai_model/`
 
-# NOTE - I HAVENT WRITTEN THIS TRAIN_ALL.PY FILE
-
-# Usage
-
-Once you have the trained models, save them to the following directories:
-- `trained_models/roberta_bs_model_v2/`
-- `trained_models/roberta_ai_model_v2/`
-- `trained_models/xgb_bs_model/`
-- `trained_models/xgb_ai_model/`
-- `trained_models/combiner_model/`
+## Usage
 
 To run the server:
 
 ```bash
-python -m src.app
+python3 -m src.app
 ```
 This hosts the web server on `localhost:5000`, which can then be accessed through the browser

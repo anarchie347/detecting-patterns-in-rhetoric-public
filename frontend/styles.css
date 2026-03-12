@@ -260,7 +260,7 @@ h1 {
 .meter-card {
   border-color: #333;
 }
-/* --- Semi-circular meter --- */
+
 .meters {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -306,24 +306,24 @@ h1 {
 
 .gauge-arc--value {
   stroke: url(#gaugeScaleGradient);
-  stroke-dasharray: 251.2; /* set in JS too; matches this arc length approx */
-  stroke-dashoffset: 251.2; /* start empty */
+  stroke-dasharray: 251.2;
+  stroke-dashoffset: 251.2;
   transition: stroke-dashoffset 300ms ease, stroke 300ms ease;
 }
 
 .gauge-needle {
-  transform: rotate(180deg); /* start at 0 (left side of scale) */
+  transform: rotate(180deg);
   transition: transform 300ms ease;
 }
 
 .gauge-needle-line {
-  stroke: #e6e8ee; /* updated dynamically in JS */
+  stroke: #e6e8ee; 
   stroke-width: 3;
   transition: stroke 300ms ease;
 }
 
 .gauge-cap {
-  fill: #e6e8ee; /* updated dynamically in JS */
+  fill: #e6e8ee; 
   transition: fill 300ms ease;
 }
 
@@ -343,7 +343,7 @@ h1 {
   font-size: 28px;
   font-weight: 700;
   line-height: 1;
-  color: #e6e8ee; /* updated dynamically in JS */
+  color: #e6e8ee; 
   transition: color 300ms ease;
 }
 

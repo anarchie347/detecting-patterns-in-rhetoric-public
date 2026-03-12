@@ -18,7 +18,6 @@ const LOADING_INCREMENT = 2;
 const FIREWORKS_DURATION_MS = 10000;
 const LOADING_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// --- Gauge wiring ---
 function scoreBand(score, label) {
   if (score >= 80) return `High (likely ${label})`;
   if (score >= 50) return "Medium";
@@ -349,13 +348,12 @@ inputFile.addEventListener("change", async (event) => {
 
   selectedFile = file;
 
-  // ✅ PDF: send multipart/form-data to Flask
   if (isPdfFile(file)) {
     fileStatus.textContent = "Uploading PDF for text extraction...";
 
     try {
       const formData = new FormData();
-      formData.append("file", file); // MUST be "file" to match Flask
+      formData.append("file", file); 
 
       const res = await fetch("/api/pdf", {
         method: "POST",
@@ -373,10 +371,10 @@ inputFile.addEventListener("change", async (event) => {
       uploadedFileText = data.text || "";
       fileStatus.textContent = `Loaded (PDF): ${file.name}`;
 
-      // Always replace textarea content with the latest uploaded file.
+      
       inputText.value = uploadedFileText;
 
-      return; // IMPORTANT: don't fall through and readAsText(pdf)
+      return; 
     } catch (err) {
       uploadedFileText = "";
       fileStatus.textContent = "Error processing PDF. Please try another file.";
@@ -384,11 +382,11 @@ inputFile.addEventListener("change", async (event) => {
     }
   }
 
-  // ✅ Non-PDF text-like files: read locally
+  
   try {
     uploadedFileText = await readFileAsText(file);
     fileStatus.textContent = `Loaded: ${file.name}`;
-    // Always replace textarea content with the latest uploaded file.
+    
     inputText.value = uploadedFileText;
   } catch (error) {
     uploadedFileText = "";
@@ -455,7 +453,7 @@ async function analyzeWholeTextWithApi(text) {
   try {
     data = await res.json();
   } catch {
-    // non-JSON response (e.g. HTML error page)
+   
   }
 
   if (!res.ok) {
@@ -476,12 +474,12 @@ async function analyzeTextWithApi(text) {
     body: JSON.stringify({ text }),
   });
 
-  // Try to parse JSON even on errors (so you can show message)
+  
   let data = null;
   try {
     data = await res.json();
   } catch {
-    // non-JSON response (e.g. HTML error page)
+   
   }
 
   if (!res.ok) {

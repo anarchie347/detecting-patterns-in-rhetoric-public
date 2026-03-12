@@ -34,7 +34,7 @@ This program is a combined bullshit and AI detector, designed to score pieces of
     - `ai_detector_data/gpt_articles.zip`
   - the wikipedia data can be gathered using `wikipedia/fetching_code/wikipedia_only.mjs`. The data should then be moved to the correct location. See `wikipedia/fetching_code/README.md` for more information
   - The AI data can be gathered using `human-to-ai-converter/main.py`, see `human-to-ai-converter/README.md` for more information. This only gathers the gemini data. The GPT data must be sourced separately
-  - XGBoost also requires a vagueness database, stored in `src/xgboost/Concreteness_ratings_Brysbaert_et_al_BRM.2.xlsx`
+  - XGBoost also requires a vagueness database, stored in `src/xgboost/Concreteness_ratings_Brysbaert_et_al_BRM.2.xlsx`. This is available from `https://link.springer.com/article/10.3758/s13428-013-0403-5#Sec10`
 - To train all the active models, run `python3 src/train_all.py`. Note if you wish to use CUDA, set the environment variable `ROBERTA_TRAIN_DEVICE = 'cuda'` beforehand
 - The training scripts automatically save the trained artifacts to:
   - `trained_models/roberta_bs_model_v2/`
